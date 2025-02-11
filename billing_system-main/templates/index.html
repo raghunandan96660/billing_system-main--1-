@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body >
+    <div class="main">
+        <h1>Billing System</h1>
+    <div class="container">
+        
+       <nav>
+        <ul class="items">
+            <li><a href="{{ url_for('add_item') }}">Add Item</a></li>
+            <li><a href="{{ url_for('update_price') }}">Update Price</a></li>
+            <li><a href="{{ url_for('update_stock') }}">Update Stock</a></li>
+            <li><a href="{{ url_for('view_stock') }}">View Stock</a></li>
+            <li><a href="{{ url_for('order') }}">Order</a></li>
+        </ul>
+       </nav>
+   
+    </div>
+    </div>
+    <style>
+    </style>
+</body>
+</html>

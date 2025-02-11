@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="main">
+        <h1>Order</h1>
+    <div class="container" style="width: fit-content;">
+        
+    <form action="{{ url_for('order') }}" method="post">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item ID</th>
+                    <th>Name</th>
+                    <th>Stock</th>
+                    <th>Price</th>
+                    <th>Order Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item['id'] }}</td>
+                    <td>{{ item['name'] }}</td>
+                    <td>{{ item['stock'] }}</td>
+                    <td>{{ item['price'] }}</td>
+                    <td>
+                        <input type="number" name="counts" min="0" max="{{ item['stock'] }}" value="0">
+                        <input type="hidden" name="items" value="{{ item['id'] }}">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Calculate Bill</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+    </div>
+</body>
+</html>
